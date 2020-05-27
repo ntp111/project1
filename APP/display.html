@@ -1,0 +1,126 @@
+
+<?php
+   
+$mng = new MongoDB\Driver\Manager("mongodb+srv://admin:admin@cluster0-xkizr.mongodb.net/test?retryWrites=true&w=majority");
+$listdatabases = new MongoDB\Driver\Command(["listDatabases" => 1]);
+$res = $mng->executeCommand("admin", $listdatabases);
+$query = new MongoDB\Driver\Query([]); 
+
+$rows = $mng->executeQuery("aids.input_videos", $query);
+
+foreach ($rows as $row) {
+    echo "$row->Name";
+    echo "$row->FPS";
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" href="css.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm" style="width: 20%; background-color: white">
+      	<div><br>
+  			<input class="form-control" type="text" placeholder="Search File" aria-label="Search File">
+  			<br><br>
+  			<table>
+			  <tr>
+			    <th>Name</th>
+			    <th>FPS</th>
+			    <th>Duration</th>
+			  </tr>
+			  <tr class="firstVideo">
+			    <td><a href="1JChIDY6tC1fO5LUKm3ANHOSRGvAABWuA">First video</a></td>
+			    <td>30</td>
+			    <td>1:00:00</td>
+			  </tr>
+			  <tr>
+			    <td> <a href="1MLEXQy3m_MD4-bzZdKwa2F8sdEBN1q5a">Second video</a></td>
+			    <td>60</td>
+			    <td>1:30:00</td>
+			  </tr>
+			  <tr>
+			    <td><a href="1Knpqaj6qQYNXNWyfR_v9NzbUARZY0i4f">Third video</a></td>
+			    <td>30</td>
+			    <td>1:00:00</td>
+			  </tr>
+			  
+			  <tr>
+			    <td>...</td>
+			    <td>...</td>
+			    <td>...</td>
+			  </tr>	  
+			</table>
+
+			
+			
+
+
+		</div>
+    </div>
+
+    <div class="col-sm" style="width: 50%; background-color: white">
+      <div style="height: 400px;"><h1></h1>
+      		<iframe id="view" src="" width="800" height="400"></iframe>
+      		
+      		
+      </div>
+
+      <div class="row" style="background-color: black; height: 50px;">
+      	<div class="col-sm" style="float: left; width: 50%; text-align: left; color: white;">00:00:10:20</div>
+      	<div class="col-sm" style="float: right; width: 50%; text-align: right; color: white;">00:00:50:20</div>
+      </div>
+    
+
+    </div>
+
+    <div class="col-sm" style="width: 30%; background-color: white">
+      One of three columns
+    </div>
+
+  </div>
+</div>
+
+<div class="container extractInfo">
+		<div class="row">
+			<div class="col-sm" style="color: white">Object List</div>
+			<div class="col-sm" style="color: white">Character List</div>
+			<div class="col-sm" style="color: white">Image Analysis</div>
+			<div class="col-sm" style="color: white">Sound Analysis</div>
+			<div class="col-sm" style="color: white">Other Information</div>
+		</div>
+	
+</div>
+<script>
+/*document.addEventListener("DOMContentLoaded", () => {
+	const rows = document.querySelectorAll("tr[data-href]");
+	console.log(rows);
+	rows.forEach( row => {
+		row.addEventListener("click", () => {
+			window.location.href = row.dataset.href;
+		});
+	});
+});*/
+
+//function to get url when click
+ jQuery(document).ready(function(){
+       jQuery('a').click(function( e ){
+      e.preventDefault();
+         
+         var videoID= jQuery(this).attr('href');
+         var preview= "https://drive.google.com/file/d/" + videoID + "/preview"
+         document.getElementById("view").src = preview;
+    });
+
+
+})
+</script>
+</body>
+</html>
+
+
+

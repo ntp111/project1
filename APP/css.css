@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+    width: 100vw;
+    
+}
+.container {
+	width: 100%;
+	height: 60%;
+	text-align: center;
+}
+body {
+		background-color: #323740;
+	}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  overflow: hidden;
+  margin: 5px;
+  float: left;
+  height: 560px;
+  padding: 10px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.small-container {
+	width: 100%;
+}
+.center-container {
+	margin: auto;
+	margin-top: 20px;
+	width: 95%;
+	height: 400px;
+  text-align: center;
+}
+
+.center {
+	background-color:#323740;
+  width: 90%;
+  height: 100%;
+  display: inline-block;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+
+.col {
+  width: 14vw;
+  height: 250px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  float: left;
+  background-color: white;
+  display: inline-block;
+  
+}
+
+/* Clear floats after the columns */
+.small-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+
+
